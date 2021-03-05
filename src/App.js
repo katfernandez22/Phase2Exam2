@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/navbar/Navbar"
+import Footer from "./components/footer/Footer"
+import Landing from "./components/landing/Landing";
+import Cats from "./components/Cats/Cats";
+import Dogs from "./components/Dogs/Dogs";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+
 
 function App() {
-  return (
+  return (<Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+        <Switch>
+            <Route path="/cats" component={Cats}/>
+            <Route path="/dogs" component={Dogs}/>
+            <Route path="/" component={Landing}/>
+        </Switch>
+      <Footer/>
     </div>
+  </Router>
   );
 }
 
